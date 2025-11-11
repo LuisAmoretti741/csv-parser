@@ -20,14 +20,15 @@ const propertiesString = stringArray.shift();
 // console.log(propertiesString);
 
 //4)creare un array per gli studenti
-const studentsArray = [];
+// const studentsArray = [];
+const newArray = [];
 
 //5)ciclo l'array di stringhe
 for (let i = 0; i < stringArray.length; i++) {
     const valuesString = stringArray[i];
     
     //6) ogni giro creo un oggetto vuoto per contenere lo studente
-    const student = {};
+    const newElement = {};
 
     // console.log('----------------------------------------------------------');
     // console.log('giro n.', i);
@@ -47,21 +48,24 @@ for (let i = 0; i < stringArray.length; i++) {
     for (let j = 0; j < propertiesArray.length; j++) {
         const property = propertiesArray[j];
         const value = valuesArray[j];
-        student[property] = value;
+        newElement[property] = value;
     }
-    studentsArray.push(student);
+    newArray.push(newElement);
 }
 
 //9) fuori dal ciclo interno metto lo studente creato nell'array degli studenti
-console.log(studentsArray);
+console.log(newArray);
 
-const jsonArray = JSON.stringify(studentsArray)
 
-try {
-  fs.writeFileSync('./output/fruit-data.json', jsonArray);
-} catch (err) {
-  console.error(err);
-}
+//10) convertire l'array creato in stringa
+const jsonArray = JSON.stringify(newArray)
+
+//11) scrivere il risultato sul file
+// try {
+//   fs.writeFileSync('./output/fruit-data.json', jsonArray);
+// } catch (err) {
+//   console.error(err);
+// }
 
 
 
